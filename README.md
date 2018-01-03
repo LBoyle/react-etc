@@ -15,3 +15,12 @@ Techs:
 It has working JWT authentication and protected routes, bcrypt hashed passwords, register and login, get all users. 
 
 The API works as I want it to for now, can make conversations and send messages, currently building out the front end.
+
+
+### Setup
+
+- Clone the repo
+- Ensure MongoDB is running
+- Run ```yarn``` or ```npm install``` in the root dir for the server. 
+- Then also in the welrod/welrod-frontends/welrodweb/ folder for the front end.
+- Run both front and back end with ```yarn start``` or ```npm start```
