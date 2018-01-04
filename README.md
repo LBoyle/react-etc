@@ -3,6 +3,10 @@ My progress learning React
 
 Much the same as some of my other repos, I'm just storing my work here. 
 
+# 01-helloworld
+
+Nothing here, leftovers, don't bother. 
+
 # 02-welrod
 
 This is the first version of a chat app I'm making, it will be something like Slack.
