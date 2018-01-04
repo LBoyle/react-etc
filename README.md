@@ -3,9 +3,7 @@ My progress learning React
 
 Much the same as some of my other repos, I'm just storing my work here. 
 
-# 01-helloworld
-
-Nothing here, leftovers, don't bother. 
+Project 01 was removed.
 
 # 02-welrod
 
