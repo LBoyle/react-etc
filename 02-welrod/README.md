@@ -2,6 +2,8 @@
 
 This is the first version of a chat app I'm making, it will be something like Slack.
 
+I'm developing it on a private (free) GitLab repo, I decided to put it here to show it to potential employers. 
+
 ### Techs:
 
 - Node / Express / MongoDB / socket.io
