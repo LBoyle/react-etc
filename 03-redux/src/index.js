@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import registerServiceWorker from './registerServiceWorker';
+
 import './styles/normalize.css';
 import './styles/skeleton.css';
 import './styles/index.css';
-import App from './containers/App';
-import registerServiceWorker from './registerServiceWorker';
-import { Provider } from 'react-redux';
-
 import store from './store';
+import App from './containers/App';
 
 ReactDOM.render(
   <Provider store={store}>
