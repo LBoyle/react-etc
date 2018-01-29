@@ -6,14 +6,12 @@
 // import App from './components/App';
 // import registerServiceWorker from './registerServiceWorker';
 
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
-const initialState = {
+const mathReducer = (state = {
   result: 1,
   lastValues: []
-};
-
-const reducer = (state = initialState, action) => {
+}, action) => {
   switch(action.type) {
     case 'ADD':
       state = {
@@ -36,7 +34,34 @@ const reducer = (state = initialState, action) => {
   return state;
 };
 
-const store = createStore(reducer);
+const userReducer = (state = {
+  name: 'Louis',
+  age: 28,
+  lastValues: []
+}, action) => {
+  switch(action.type) {
+    case 'SET_NAME':
+      state = {
+        ...state,
+        name: action.payload,
+        lastValues: [...state.lastValues, action.payload]
+      };
+      break;
+    case 'SET_AGE':
+      state = {
+        ...state,
+        age: action.payload,
+        lastValues: [...state.lastValues, action.payload]
+      };
+      break;
+    default:
+      console.log('Default reached');
+      break;
+  }
+  return state;
+};
+
+const store = createStore(combineReducers({mathReducer, userReducer}));
 
 store.subscribe(() => {
   console.log('store updated', store.getState());
@@ -53,6 +78,14 @@ store.dispatch({
 store.dispatch({
   type: 'SUBTRACT',
   payload: 40
+});
+store.dispatch({
+  type: 'SET_AGE',
+  payload: 40
+});
+store.dispatch({
+  type: 'SET_NAME',
+  payload: 'Bill'
 });
 
 
