@@ -9,6 +9,8 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 
+import { Provider } from 'react-redux';
+
 const mathReducer = (state = {
   result: 1,
   lastValues: []
@@ -60,12 +62,20 @@ const userReducer = (state = {
   return state;
 };
 
+const store = createStore(combineReducers({mathReducer, userReducer}), {}, applyMiddleware(logger));
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+  , document.getElementById('root')
+);
+registerServiceWorker();
+
 // const myLogger = state => next => action => {
 //   console.log('Log: ', action, state.getState());
 //   next(action);
 // };
-
-const store = createStore(combineReducers({mathReducer, userReducer}), {}, applyMiddleware(logger));
 
 // store.subscribe(() => {
 //   console.log('store updated', store.getState());
@@ -91,6 +101,3 @@ const store = createStore(combineReducers({mathReducer, userReducer}), {}, apply
 //   type: 'SET_NAME',
 //   payload: 'Bill'
 // });
-
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
