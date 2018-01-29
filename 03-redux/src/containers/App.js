@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import User from './User';
-import Main from './Main';
+import User from '../components/User';
+import Main from '../components/Main';
 
 import { connect } from 'react-redux';
 
@@ -33,5 +33,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-
-// export default App;
