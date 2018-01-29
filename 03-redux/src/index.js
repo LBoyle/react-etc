@@ -6,7 +6,8 @@
 // import App from './components/App';
 // import registerServiceWorker from './registerServiceWorker';
 
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
 
 const mathReducer = (state = {
   result: 1,
@@ -28,7 +29,6 @@ const mathReducer = (state = {
       };
       break;
     default:
-      console.log('Default reached');
       break;
   }
   return state;
@@ -55,17 +55,21 @@ const userReducer = (state = {
       };
       break;
     default:
-      console.log('Default reached');
       break;
   }
   return state;
 };
 
-const store = createStore(combineReducers({mathReducer, userReducer}));
+// const myLogger = state => next => action => {
+//   console.log('Log: ', action, state.getState());
+//   next(action);
+// };
 
-store.subscribe(() => {
-  console.log('store updated', store.getState());
-});
+const store = createStore(combineReducers({mathReducer, userReducer}), {}, applyMiddleware(logger));
+
+// store.subscribe(() => {
+//   console.log('store updated', store.getState());
+// });
 
 store.dispatch({
   type: 'ADD',
