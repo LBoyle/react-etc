@@ -12,13 +12,17 @@ export function setName(name) {
     payload: new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(name);
-      }, 2000);
+      }, 2000); // to simulate an ajax call or something
     })
-  }; // to simulate an ajax call or something
+  };
 }
 export function setAge(age) {
   return {
     type: 'SET_AGE',
-    payload: age
+    payload: new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(age);
+      }, 2000);
+    })
   };
 }
